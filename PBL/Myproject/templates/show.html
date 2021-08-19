@@ -1,0 +1,44 @@
+{% load static %}
+<html>
+    <head>
+    <link rel="stylesheet" href="{% static 'css/show.css' %}">
+     </head>
+    <body>
+        <marquee direction="right"> Available data in Database</marquee>
+        <div>
+        <table>
+        <tr>
+            <th>ID</th>
+            <th><h4>PROGRAM</h4></th>
+            <th><h4>REGULATION</h4></th>
+            <th><h4>SEMISTER<h4></h4></th>
+            <th><h4>EXAMTYPE</h4></th>
+            <th><h4>CREATED ON</h4></th>
+            <th><h4>NO OF BRANCHES DATA ADDED</h4></th>
+            <th colspan="3"><h4>OPERATIONS</h4></th>
+        </tr>
+        {% for file in files %}
+        <td><h6>{{file.id}}</h6></td>
+        <td><h6>{{file.program}}</h6></td>
+        <td><h6>{{file.regulation}}</h6></td>
+        <td><h6>{{file.semister}}</h6></td>
+        <td><h6>{{file.examtype}}</h6></td>
+        <td><h6>{{file.created_date}}</h6></td>
+        <td><h6 style="text-align: center;">{{file.no_of_branches_result_user_add}}</h6></td>
+        <td><a href="{% url 'add_branch_res' file.id %}"><h5>ADD FILES</h5></a></td>
+        <td><a href="{% url 'abf' file.id %}"><h5>SHOW FILES</h5></a></td>
+        <td><a href="{% url 'publish' file.id %}"><h5>PUBLISH</h5></a></td>
+
+        </tr>
+        {% endfor %}
+        </table>
+        {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+        </div>
+    </body>
+</html>

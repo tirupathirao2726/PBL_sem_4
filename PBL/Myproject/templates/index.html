@@ -1,0 +1,42 @@
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'css/index.css' %}"
+    </head>
+    <body>
+        <div class="form1">
+            <h1>LBRCE</h1>
+        <form  method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <select name="program" required>
+                <option value="" disabled selected hidden>Choose Program</option>
+                <option value="B-tech">B-tech</option>
+                <option value="M-tech">M-tech</option>
+            </select><br><br>
+            <select name="regulation" required>
+                <option value="" disabled selected hidden>Choose Regulation</option>
+                <option value="R14">R14</option>
+                <option value="R17">R17</option>
+                <option value="R20">R20</option>
+              </select><br><br>
+              <select  name="Semister" required>
+                <option value="" disabled selected hidden>Choose Semister</option>
+                <option value="one">I</option>
+                <option value="two">II</option>
+                <option value="three">III</option>
+                <option value="four">IV</option>
+                <option value="five">V</option>
+                <option value="six">VI</option>
+                <option value="seven">VII</option>
+                <option value="eight">VIII</option>
+              </select><br><br>
+              <select name="Examtype" required>
+                  <option value=""disabled selected hidden>Choose Examtype</option>
+                  <option value="regular">Regular</option>
+                  <option value="supply">Supplementary</option>
+              </select><br><br>
+            <input type="submit" name="submit" value="Create Database">
+        </form>
+        </div>
+    </body>
+</html>

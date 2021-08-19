@@ -1,0 +1,27 @@
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'css/available_branch_res.css' %}">
+     </head>
+    <body>
+        <marquee direction="right">Available files in the {{files.CDid}} Database</marquee>
+        <div>
+        <table>
+            <caption>RESULT FILES</caption>
+        <tr>
+            <th>SNO</th>
+            <th><h4>FILE NAME</h4></th>
+            <th><h4>BRANCH NAME</h4></th>
+            <th><h4>Belongs to<h4></h4></th>
+        </tr>
+        {% for file in files %}
+        <td><h4>{{file.id}}</h4></td>
+        <td><a href="{{file.added_branch_file.url}}" download><h4>Download</h4></a></td>
+        <td><h4>{{file.added_branch_name}}</h4></td>
+        <td><h4>{{file.CDid}}</h4></td>
+        </tr>
+        {% endfor %}
+        </table>
+        </div>
+    </body>
+</html>

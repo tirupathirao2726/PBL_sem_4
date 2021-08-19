@@ -1,0 +1,19 @@
+<html>
+    <body>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <select  name="branch" required>
+                <option value="" disabled selected hidden>Choose Branch</option>
+                <option value="CSE">CSE</option>
+                <option value="ECE">ECE</option>
+                <option value="IT">IT</option>
+                <option value="EEE">EEE</option>
+                <option value="EIE">EIE</option>
+                <option value="MECH">MECH</option>
+                <option value="AERO">AERO</option>
+              </select><br><br>
+            <input type="file" name="document" accept=".csv">
+            <input type="submit" name="submit" value="ADD">
+        </form>
+    </body>
+</html>

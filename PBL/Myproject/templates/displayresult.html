@@ -1,0 +1,20 @@
+{% load static %}
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/displayresult.css' %}"
+    </head>
+    <body>
+        <div>
+            <img src="{% static 'images/header.png' %}" alt="logo" width="95%"
+        </div>
+        <table>
+            <tr colspan="2">
+                {% for key,value in data.items %}
+                <td>{{key|upper}}</td>
+                <td>{{value}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
